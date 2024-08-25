@@ -1,9 +1,5 @@
 "use client";
-import Cart from "@/components/cartProducts";
-import ProductsListWrapper from "@/components/products-list";
-import ProductsList from "@/components/products-list";
-
-import Image from "next/image";
+import ProductsListWrapper from "@/components/products/products-list";
 
 export default function Home() {
     return (

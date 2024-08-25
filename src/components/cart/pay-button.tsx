@@ -10,9 +10,11 @@ import Button from "../button";
 export default function PayButton({
     payMethod,
     sum,
+    onConfirm,
 }: {
     payMethod: string | null;
     sum: number;
+    onConfirm: () => void;
 }) {
     const coins = useSelector((state: RootState) => state.money.coins);
     const dispatch = useDispatch();
@@ -20,6 +22,7 @@ export default function PayButton({
     const handleCoinsPay = () => {
         dispatch(removeCoins(sum));
         dispatch(clearCart());
+        onConfirm();
     };
 
     const handleCoinsAndMoneyPay = () => {
@@ -29,10 +32,12 @@ export default function PayButton({
             dispatch(removeCoins(coins));
         }
         dispatch(clearCart());
+        onConfirm();
     };
 
     const handleMoneyPay = () => {
         dispatch(clearCart());
+        onConfirm();
     };
 
     switch (payMethod) {

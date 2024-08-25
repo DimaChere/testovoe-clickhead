@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import ChoosePayMethod from "./choose-pay-method";
 import Button from "../button";
 
-export default function ConfirmCart() {
+export default function ConfirmCart({ onConfirm }: { onConfirm: () => void }) {
     const products = useSelector((state: RootState) => state.cart.products);
 
     const sum: number = +products.reduce((a, b) => a + b.price, 0).toFixed(2);
@@ -23,7 +23,7 @@ export default function ConfirmCart() {
             >
                 Confirm Cart
             </Button>
-            <ChoosePayMethod sum={sum} />
+            <ChoosePayMethod sum={sum} onConfirm={onConfirm} />
         </div>
     );
 }

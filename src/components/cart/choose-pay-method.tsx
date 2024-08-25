@@ -4,7 +4,13 @@ import PayMethodCard from "./pay-method-card";
 import { useState } from "react";
 import PayButton from "./pay-button";
 
-export default function ChoosePayMethod({ sum }: { sum: number }) {
+export default function ChoosePayMethod({
+    sum,
+    onConfirm,
+}: {
+    sum: number;
+    onConfirm: () => void;
+}) {
     const [payMethod, setPayMethod] = useState<string | null>(null);
 
     const payMethods: PayMethod[] = [
@@ -40,7 +46,11 @@ export default function ChoosePayMethod({ sum }: { sum: number }) {
                             />
                         ))}
                     </div>
-                    <PayButton payMethod={payMethod} sum={sum} />
+                    <PayButton
+                        payMethod={payMethod}
+                        sum={sum}
+                        onConfirm={onConfirm}
+                    />
                 </div>
                 <div className="modal-action">
                     <form method="dialog">

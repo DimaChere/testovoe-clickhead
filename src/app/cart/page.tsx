@@ -18,7 +18,7 @@ export default function Cart() {
     return (
         <main className="flex flex-1 flex-col items-center h-full">
             {purchaseConfirmed && (
-                <div role="alert" className="alert alert-success mb-4">
+                <div role="alert" className="absolute alert alert-success">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6 shrink-0 stroke-current"

@@ -2,6 +2,7 @@
 import { Product } from "@/lib/types";
 import { addToCart } from "@/redux/features/cartSlice";
 import { useDispatch } from "react-redux";
+import Button from "../button";
 
 export default function ProductBlock({ product }: { product: Product }) {
     const dispatch = useDispatch();
@@ -17,12 +18,13 @@ export default function ProductBlock({ product }: { product: Product }) {
         >
             <h3>{product.title}</h3>
             <p>{product.price}</p>
-            <button
-                className="btn btn-neutral border-none bg-purple-400 hover:bg-purple-500 text-white"
+
+            <Button
+                additionalStyles=""
                 onClick={() => handleAddToCart(product)}
             >
                 Add to cart
-            </button>
+            </Button>
         </div>
     );
 }

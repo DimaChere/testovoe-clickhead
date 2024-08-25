@@ -5,6 +5,7 @@ import { RootState } from "@/redux/store";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
+import Button from "../button";
 
 export default function PayButton({
     payMethod,
@@ -40,8 +41,8 @@ export default function PayButton({
                 <div>
                     <div className="">
                         {coins >= sum ? (
-                            <button
-                                className="btn flex items-center justify-center gap-1 bg-purple-400 hover:bg-purple-500 text-white"
+                            <Button
+                                additionalStyles="flex items-center justify-center gap-1"
                                 onClick={handleCoinsPay}
                             >
                                 Buy for
@@ -53,7 +54,7 @@ export default function PayButton({
                                     alt=" coins"
                                     className="h-7"
                                 />
-                            </button>
+                            </Button>
                         ) : (
                             <div className="flex flex-col">
                                 <span>Not enough Coins</span>
@@ -70,53 +71,57 @@ export default function PayButton({
             );
         case "Coins and cash":
             return (
-                <div>
+                <>
                     {coins >= sum ? (
-                        <button
-                            className="btn flex items-center justify-center gap-1 bg-purple-400 hover:bg-purple-500 text-white"
-                            onClick={handleCoinsAndMoneyPay}
-                        >
-                            Buy for
-                            <span>{sum}</span>
-                            <Image
-                                src="/coin.svg"
-                                height={30}
-                                width={30}
-                                alt=" coins"
-                                className="h-7"
-                            />
-                        </button>
+                        <>
+                            <Button
+                                additionalStyles="flex items-center justify-center gap-1"
+                                onClick={handleCoinsAndMoneyPay}
+                            >
+                                Buy for
+                                <span>{sum}</span>
+                                <Image
+                                    src="/coin.svg"
+                                    height={30}
+                                    width={30}
+                                    alt=" coins"
+                                    className="h-7"
+                                />
+                            </Button>
+                        </>
                     ) : (
-                        <button
-                            className="btn flex items-center justify-center gap-1 bg-purple-400 hover:bg-purple-500 text-white"
-                            onClick={handleCoinsAndMoneyPay}
-                        >
-                            <span>{coins}</span>
-                            <Image
-                                src="/coin.svg"
-                                height={30}
-                                width={30}
-                                alt=" coins"
-                                className="h-7"
-                            />
-                            +<span>{(sum - coins).toFixed(2)}</span>
-                            <Image
-                                src="/cash.svg"
-                                height={30}
-                                width={30}
-                                alt="dollars"
-                                className="h-7"
-                            />
-                        </button>
+                        <>
+                            <Button
+                                additionalStyles="flex items-center justify-center gap-1"
+                                onClick={handleCoinsAndMoneyPay}
+                            >
+                                <span>{coins}</span>
+                                <Image
+                                    src="/coin.svg"
+                                    height={30}
+                                    width={30}
+                                    alt=" coins"
+                                    className="h-7"
+                                />
+                                +<span>{(sum - coins).toFixed(2)}</span>
+                                <Image
+                                    src="/cash.svg"
+                                    height={30}
+                                    width={30}
+                                    alt="dollars"
+                                    className="h-7"
+                                />
+                            </Button>
+                        </>
                     )}
-                </div>
+                </>
             );
 
         case "Cash":
             return (
                 <div>
-                    <button
-                        className="btn flex items-center justify-center gap-1 bg-purple-400 hover:bg-purple-500 text-white"
+                    <Button
+                        additionalStyles="flex items-center justify-center gap-1"
                         onClick={handleMoneyPay}
                     >
                         Buy for
@@ -125,10 +130,10 @@ export default function PayButton({
                             src="/cash.svg"
                             height={30}
                             width={30}
-                            alt=" coins"
+                            alt=" cash"
                             className="h-7"
                         />
-                    </button>
+                    </Button>
                 </div>
             );
         default:

@@ -1,4 +1,5 @@
 "use client";
+import Button from "@/components/button";
 import { DonateVariant } from "@/lib/types";
 import { addCoins } from "@/redux/features/moneySlice";
 import Image from "next/image";
@@ -43,8 +44,8 @@ export default function Donate() {
                         height={320}
                     />
                     <span className="text-4xl text-white">{donate.value}</span>
-                    <button
-                        className="btn btn-primary w-full mt-auto border-none bg-purple-400 hover:bg-purple-500 text-white"
+                    <Button
+                        additionalStyles="w-full mt-auto border-none"
                         onClick={() => handleBuy(donate.value)}
                     >
                         <span>Buy for</span>
@@ -58,7 +59,7 @@ export default function Donate() {
                                 className="h-7"
                             />
                         </div>
-                    </button>
+                    </Button>
                 </div>
             ))}
         </main>

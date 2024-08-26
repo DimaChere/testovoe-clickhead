@@ -34,8 +34,10 @@ export default function ChoosePayMethod({
 
     return (
         <dialog id="my_modal_1" className="modal">
-            <div className="modal-box">
-                <h3 className="font-bold text-lg mb-4">Choose pay method</h3>
+            <div className="modal-box bg-slate-300 dark:bg-[#1d232a]">
+                <h3 className="font-bold text-lg mb-4 text-gray-400">
+                    Choose pay method
+                </h3>
                 <div className="flex flex-col items-center gap-5 w-full">
                     <div className="flex gap-3 w-full">
                         {payMethods.map((method) => (

@@ -10,7 +10,7 @@ export default function PayMethodCard({
 }) {
     return (
         <button
-            className="flex flex-col justify-center items-center w-full aspect-square border rounded-2xl gradient active:scale-95 ease-in duration-[20ms]"
+            className="flex flex-col justify-center items-center gap-2 w-full aspect-square border rounded-2xl gradient active:scale-95 ease-in duration-[20ms]"
             onClick={() => onClickHandler(method.name)}
         >
             <Image
@@ -20,7 +20,7 @@ export default function PayMethodCard({
                 height={100}
                 className="max-w-[50px] max-h-[50px]"
             />
-            <span className="text-white">{method.name}</span>
+            <span className="text-gray-700 dark:text-white">{method.name}</span>
         </button>
     );
 }

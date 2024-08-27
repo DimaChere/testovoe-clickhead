@@ -2,6 +2,7 @@
 import CartProducts from "@/components/cart/cart-products";
 import ConfirmCart from "@/components/cart/confirm-cart";
 import EmptyCart from "@/components/cart/empty-cart";
+import { PurchaseConfirmContext } from "@/lib/contexts";
 import { RootState } from "@/redux/store";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -41,7 +42,11 @@ export default function Cart() {
                 {products.length > 0 ? (
                     <>
                         <CartProducts />
-                        <ConfirmCart onConfirm={handlePurchaseConfirmation} />
+                        <PurchaseConfirmContext.Provider
+                            value={handlePurchaseConfirmation}
+                        >
+                            <ConfirmCart />
+                        </PurchaseConfirmContext.Provider>
                     </>
                 ) : (
                     <EmptyCart />
